@@ -1,0 +1,272 @@
+/* ==========================================================================
+   RESET + VARIABLES
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #c1121f;
+  --primary-dark: #8f0e18;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --gray: #6c757d;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  color: var(--dark);
+  line-height: 1.6;
+  background: black;
+  background-repeat: round;
+}
+
+/* ==========================================================================
+   HEADER + NAVEGACIÓN
+   ========================================================================== */
+header {
+  background: var(--dark);
+  color: white;
+  padding: 1rem;
+  position: static;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+nav a:hover,
+nav a.active {
+  background: var(--primary);
+  color: white;
+}
+
+/* Menú hamburguesa */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+h1 {
+  text-align: center;
+  font-size: clamp(2.3rem, 5.5vw, 4rem);
+  margin: 3rem 0;
+  background: none;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================================
+   GALLERY
+   ========================================================================== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.gallery-item:hover {
+  transform: translateY(-14px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(139, 92, 246, 0.25);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.09);
+}
+
+.gallery-item p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+  color: white;
+  padding: 15px 12px 12px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.gallery-item:hover p {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   LIGHTBOX - MODIFICADO
+   ========================================================================== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.97);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 95vw;
+  max-height: 95vh;
+  text-align: center;
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 82vh;
+  border-radius: 16px;
+  box-shadow: 0 0 80px rgba(0, 0, 0, 0.9);
+  margin-bottom: 15px;
+  background: #000;
+}
+
+.lightbox-description {
+  color: white;
+  font-size: 1.35rem;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 18px 25px;
+  border-radius: 12px;
+  max-width: 90%;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Botón cerrar - CORREGIDO (ya no queda tan arriba) */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 2.8rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.75);
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+.close-btn:hover {
+  background: #ef4444;
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.8rem;
+  }
+
+  h1 {
+    margin: 2rem 0;
+  }
+
+  .lightbox-description {
+    font-size: 1.15rem;
+    padding: 14px 20px;
+  }
+
+  .close-btn {
+    top: 12px;
+    right: 12px;
+    width: 50px;
+    height: 50px;
+    font-size: 2.5rem;
+  }
+}
+
+p {
+  font-weight: 500;
+  color: white;
+}

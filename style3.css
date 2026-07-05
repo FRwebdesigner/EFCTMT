@@ -1,0 +1,285 @@
+/* ==========================================================================
+   style3.css - Versión con header corregido (sin superposición en responsive)
+   Manteniendo formulario y póster casi sin tocar
+   ========================================================================== */
+
+:root {
+  --bg: #0d1117;
+  --card: #161b22;
+  --accent: #c1121f;           /* rojo para coherencia con index */
+  --accent-dark: #8f0e18;
+  --text: #e2e8f0;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --gray: #6c757d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  color: var(--dark);
+  line-height: 1.6;
+  background: black;
+  background-repeat: round;
+  align-content: center;
+}
+
+/* ==========================================================================
+   HEADER – versión corregida para evitar superposición
+   ========================================================================== */
+header {
+  background: var(--dark);
+  color: white;
+  padding: 1rem 1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  min-height: 50px;                /* evita colapso */
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--accent);
+  text-decoration: none;
+  flex-shrink: 0;
+  padding-right: 1rem;             /* pequeño margen extra */
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 2.2rem;
+  line-height: 1;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.3rem 0.6rem;
+  margin-left: auto;               /* empuja a la derecha */
+  z-index: 200;
+}
+
+.main-nav {
+  display: block;
+}
+
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.main-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  background: var(--accent);
+}
+
+/* ==========================================================================
+   FORMULARIO + SORTEO (prácticamente sin cambios)
+   ========================================================================== */
+h2 {
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 2.1rem;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  background: #8f0e18;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: red;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 0 3px rgba(193,18,31,0.25);
+  transform: translateY(-2px);
+}
+
+input::placeholder{
+  color: rgb(255, 255, 0);
+  font-weight: 400;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(193,18,31,0.4);
+  margin-top: 10px;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(193,18,31,0.5);
+}
+
+.message {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 500;
+  display: none;
+}
+
+.success {
+  background: rgba(46, 204, 113, 0.3);
+  color: #2ecc71;
+  display: block;
+}
+
+.error {
+  background: rgba(231, 76, 60, 0.3);
+  color: #e74c3c;
+  display: block;
+}
+
+.contact-container {
+  max-width: 1100px;
+  margin: 0 auto 4rem;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem 3rem;
+  opacity: 0.825;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+}
+
+.contact-container > form {
+  flex: 1;
+  min-width: 320px;
+  max-width: 480px;
+}
+
+.sorteo-poster {
+  flex: 1;
+  min-width: 320px;
+  text-align: center;
+}
+
+.sorteo-poster img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 
+    0 10px 30px rgba(193,18,31,0.45),
+    0 0 0 3px rgba(193,18,31,0.18);
+  transition: all 0.3s ease;
+}
+
+.sorteo-poster img:hover {
+  transform: scale(1.025);
+  box-shadow: 
+    0 15px 45px rgba(193,18,31,0.65),
+    0 0 0 4px rgba(193,18,31,0.3);
+}
+
+/* ==========================================================================
+   RESPONSIVE – parte crítica para evitar superposición
+   ========================================================================== */
+@media (max-width: 768px) {
+.menu-toggle {
+    display: block;
+  }
+
+.main-nav ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--dark);
+    padding: 1.5rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    z-index: 150;
+  }
+
+.main-nav ul.show {
+    display: flex;
+  }
+
+ /* Esto evita superposición casi siempre */
+  .nav-container {
+    padding-right: 60px !important;   /* reserva espacio fijo para el botón */
+  }
+
+  
+  .logo {
+    font-size: 1.6rem;
+  }
+
+  .contact-container {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .contact-container > form,
+  .sorteo-poster {
+    max-width: 100%;
+  }
+}
+
+/* Limpiar restos innecesarios */
+header.shadow,
+.nav.container,
+.inicio,
+p { font-weight: normal; font-size: inherit; }
+

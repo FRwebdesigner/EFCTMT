@@ -1,0 +1,150 @@
+/* ==========================================================================
+   RESET + VARIABLES
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #c1121f;
+  --primary-dark: #8f0e18;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --gray: #6c757d;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  color: var(--dark);
+  line-height: 1.6;
+  background: black;
+  background-repeat: round;
+  align-content: center;
+}
+
+/* ==========================================================================
+   HEADER + NAVEGACIÓN
+   ========================================================================== */
+header {
+  background: var(--dark);
+  color: white;
+  padding: 1rem;
+  position: static;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+nav a:hover,
+nav a.active {
+  background: var(--primary);
+  color: white;
+}
+
+/* Menú hamburguesa para móvil */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.8rem;
+  }
+
+}
+
+p{
+    font-weight: 400;
+    font-size: 20px;
+    text-align: none;
+    color: white;
+}
+
+
+h1 {
+    font-weight: 900;
+    font-size: 45px;
+    text-align: center;
+    color: red;
+}
+
+h4{
+    font-weight: 700;
+    font-size: 35px;
+    text-align: center;
+    color: red;
+}
+
+h5{
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+}
+
+.container{
+  background: black;
+  opacity: 0.75;
+}

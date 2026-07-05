@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efecto Metal | Sorteos</title>
+    <link rel="stylesheet" href="style3.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+ <body>
+<header>
+  <div class="nav-container">
+    <a href="index.html" class="logo">EFECTOMETAL</a>
+    <button class="menu-toggle">☰</button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="entrevistas.html">Entrevistas</a></li>
+        <li><a href="sorteo.html" class="active">Sorteo</a></li>
+        <li><a href="multimedia.html">Fotos</a></li>
+        <li><a href="videos.html">Videos</a></li>
+        <li><a href="portadas.html">Portadas</a></li>
+        <li><a href="us.html">Nosotros</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+  <div class="contact-container">
+    <h2>Participá de nuestros Sorteos Mensuales completando con tus datos todos los campos de este formulario</h2>
+
+    <form action="https://api.web3forms.com/submit" method="POST">
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="hidden" name="access_key" value="1b705a08-a3aa-48b6-9dc0-4ad5fff99a6c">
+        <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Apellido</label>
+        <input type="text" id="name" name="name" placeholder="Tu apellido" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Tu @email.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">DNI</label>
+        <input type="text" id="number" name="number" placeholder="Tu Numero de DNI" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Telefono de Contacto</label>
+        <input type="tel" id="number" name="number" placeholder="Tu Numero de Telefono" required>
+      </div>
+
+      <button type="submit">Participar</button>
+
+      <div class="message" id="formMessage"></div>
+    </form>
+    <div class="sorteo-poster">
+      <p>Sorteo Marzo 2026</p>
+    <img src="img/sorteo2.jpeg" 
+         alt="Sorteo discos Ozzy Osbourne encuadrados - Efecto Metal">
+</div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <script>
+  document.querySelector('.menu-toggle')?.addEventListener('click', () => {
+    document.querySelector('.main-nav ul')?.classList.toggle('show');
+  });
+</script>
+</body>
+</html>

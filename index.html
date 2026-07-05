@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Efecto Metal</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta name="google-site-verification" content="N6AgoEROlSI7rVwQaW2KMYaid_eSm9euLodnTZcrrMY" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="nav-container">
+
+      <div class="header-left">
+        <a href="index.html" class="logo">EFECTOMETAL</a>
+        
+        <div class="social-and-copyright">
+          <div class="social-icons">
+            <a href="https://www.facebook.com/efectometalrevista" target="_blank" rel="noopener" aria-label="Facebook Efecto Metal">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/efectometalrevista/" target="_blank" rel="noopener" aria-label="Instagram Efecto Metal">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@efectometalrevista?_r=1&_t=ZS-956T0xA315c" target="_blank" rel="noopener" aria-label="Tik Tok Efecto Metal">
+              <i class="fab fa-tiktok"></i>
+            </a>
+          </div>
+          <p class="copyright">
+            e-mail: efectometal@gmail.com <br>
+          </p>
+        </div>
+      </div>
+
+      <button class="menu-toggle" aria-label="Abrir menú" id="menuToggle">
+        ☰
+      </button>
+
+      <nav id="mainNav">
+        <ul>
+          <li><a href="index.html" class="active">Inicio</a></li>
+          <li><a href="noticias.html">Noticias</a></li>
+          <li><a href="entrevistas.html">Entrevistas</a></li>
+          <li><a href="sorteo.html">Sorteo</a></li>
+          <li><a href="multimedia.html">Fotos</a></li>
+          <li><a href="videos.html">Videos</a></li>
+          <li><a href="portadas.html">Portadas</a></li>
+          <li><a href="us.html">Nosotros</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="welcome-text">BIENVENIDOS A</h1>
+        
+        <img src="img/banner.jpg" 
+             alt="Efecto Metal" 
+             class="main-logo">
+
+        <p class="hero-subtitle">
+          El Heavy en todas sus variantes <br>
+          desde hace más de 15 años
+        </p>
+
+        <a href="noticias.html" class=""></a>
+
+        <!-- AUSPICIADORES - MÁS GRANDES + SCROLL VERTICAL -->
+        <div class="sponsors-section">
+          <p class="sponsors-title">AUSPICIADO POR</p>
+          
+          <div class="sponsors-logos-container">
+            <div class="sponsors-logos">
+              <!-- Primer set -->
+              <img src="img/sponsor1.jpg" alt="Auspiciador 1">
+              <img src="img/sponsor2.jpg" alt="Auspiciador 2">
+              <img src="img/sponsor3.jpg" alt="Auspiciador 3">
+              <img src="img/sponsor4.jpg" alt="Auspiciador 4">
+              <img src="img/sponsor5.jpg" alt="Auspiciador 5">
+              <!-- Agrega aquí más logos según necesites -->
+
+              <!-- Segundo set (duplicado para loop infinito) -->
+              <img src="img/sponsor1.jpg" alt="Auspiciador 1">
+              <img src="img/sponsor2.jpg" alt="Auspiciador 2">
+              <img src="img/sponsor3.jpg" alt="Auspiciador 3">
+              <img src="img/sponsor4.jpg" alt="Auspiciador 4">
+              <img src="img/sponsor5.jpg" alt="Auspiciador 5">
+            </div>
+          </div>
+        </div>
+        
+        <p class="hero-copyright">
+          <span class="copyright-left">
+            Diseño web: ftsoriaromano@gmail.com
+          </span>
+          <span class="copyright-right">
+            Efecto Metal ©2011 &nbsp;&nbsp;&nbsp; 
+            Creador: Ricardo Puiggrós
+          </span>
+        </p>
+
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Menú hamburguesa
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.getElementById('menuToggle');
+      const mainNav = document.getElementById('mainNav');
+
+      if (menuToggle && mainNav) {
+        menuToggle.addEventListener('click', function() {
+          mainNav.classList.toggle('show');
+          
+          if (mainNav.classList.contains('show')) {
+            menuToggle.textContent = '✕';
+          } else {
+            menuToggle.textContent = '☰';
+          }
+        });
+
+        const navLinks = mainNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            mainNav.classList.remove('show');
+            menuToggle.textContent = '☰';
+          });
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
